@@ -162,7 +162,8 @@ pip install -r requirements.txt
 ---
 
 ## Data Source
-Kaggle / UCI **Pima Indians Diabetes** dataset (commonly attributed to the National Institute of Diabetes and Digestive and Kidney Diseases).
+Pima Indians Diabetes Database (Kaggle): https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database
+
 
 ---
 
