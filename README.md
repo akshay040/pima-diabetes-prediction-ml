@@ -11,9 +11,9 @@ This repository includes **Phase 1 (Data Preparation & Visualisation)** and **Ph
 Build and evaluate classification models that predict whether a patient has diabetes (**Outcome = 1**) based on clinical/diagnostic measurements (**Outcome = 0** otherwise).
 
 ### Dataset
-- Records: 768 patients (commonly used benchmark dataset)
-- Population notes (as per dataset description): Female patients, age 21+, Pima Indian heritage
-- Target: **Outcome** (binary)
+- **Records:** 768 patients (benchmark dataset)
+- **Population notes (dataset description):** Female patients, age 21+, Pima Indian heritage
+- **Target:** `Outcome` (binary: 0/1)
 
 ### Features (8 predictors)
 - Pregnancies
@@ -30,12 +30,13 @@ Build and evaluate classification models that predict whether a patient has diab
 ## What I Did (Phase 1 → Phase 2)
 
 ## Phase 1 — Data Preparation & Visualisation
+
 ### Data cleaning & quality handling
 - Removed duplicates
 - Treated biologically impossible **0 values** as missing for key medical columns:
-  - **Mean imputation**: Glucose, BloodPressure
-  - **Median imputation** (skewed): SkinThickness, Insulin, BMI
-- Rule-based outlier filtering to reduce extreme values (e.g., unusually high insulin/BMI, etc.)
+  - **Mean imputation:** Glucose, BloodPressure
+  - **Median imputation (skewed):** SkinThickness, Insulin, BMI
+- Applied **rule-based outlier filtering** to reduce extreme values (e.g., unusually high insulin/BMI)
 
 ### Exploratory analysis (EDA)
 - Summary statistics + distribution checks
@@ -49,19 +50,19 @@ Build and evaluate classification models that predict whether a patient has diab
 ## Phase 2 — Predictive Modelling
 
 ### Train/Test Split
-- 80/20 split (`test_size=0.2`, `random_state=0`)
+- 80/20 split (`test_size = 0.2`, `random_state = 0`)
 
 ### Feature selection
-Used **SelectKBest (ANOVA F-test / f_classif)** to rank predictive strength.  
+Used **SelectKBest (ANOVA F-test / `f_classif`)** to rank predictive strength.  
 Top signals typically include:
 - Glucose (strongest)
 - BMI
 - Age
 - Pregnancies  
-(plus other features with moderate contribution)
+(+ other features with moderate contribution)
 
 ### Models trained + tuned (GridSearchCV)
-I trained and evaluated multiple classifiers with hyperparameter tuning:
+Trained and evaluated multiple classifiers with hyperparameter tuning:
 
 - **K-Nearest Neighbors (KNN)** — repeated stratified CV (10 folds × 3 repeats), F1 scoring
 - **Naive Bayes (GaussianNB)** — tuned `var_smoothing`
@@ -71,9 +72,9 @@ I trained and evaluated multiple classifiers with hyperparameter tuning:
 - **Logistic Regression** — tuned C/solver
 
 Additionally:
-- A neural network was trained and compared via ROC-AUC.
-- ROC curves + AUC scores were used for model comparison.
-- Paired t-tests were used to test whether AUC differences were statistically significant.
+- Trained a **neural network** and compared performance via ROC-AUC
+- Used **ROC curves + AUC** for model comparison
+- Applied **paired t-tests** to evaluate whether AUC differences were statistically significant
 
 ---
 
@@ -106,23 +107,26 @@ Additionally:
 - Decision Tree: **~0.77**
 - Neural Network: **~0.64**
 
-Paired t-tests indicated Logistic Regression significantly outperformed Decision Tree and Neural Net by AUC, while differences vs Random Forest / Gradient Boosting were not statistically significant in this run.
+**Significance testing (paired t-tests):**  
+Logistic Regression significantly outperformed Decision Tree and Neural Net by AUC, while differences vs Random Forest / Gradient Boosting were not statistically significant in this run.
 
 ---
 
 ## How to Run
 
-### Option A : Run notebooks
+### Run notebooks
 1. Install dependencies (see below)
 2. Open notebooks in `notebooks/`:
    - `Phase1_DataPrep_EDA.ipynb`
    - `Phase2_PredictiveModeling.ipynb`
 3. Ensure the dataset path matches the folder layout:
-   - If dataset is in `raw_data/diabetes.csv`, update:
+   - If dataset is in `raw_data/diabetes.csv`, use:
      ```python
      data = pd.read_csv("../raw_data/diabetes.csv")
      ```
 
-### Install dependencies
+---
+
+## Install Dependencies
 ```bash
 pip install -r requirements.txt
