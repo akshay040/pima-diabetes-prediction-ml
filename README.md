@@ -128,5 +128,44 @@ Logistic Regression significantly outperformed Decision Tree and Neural Net by A
 ---
 
 ## Install Dependencies
-```bash
+``` bash
 pip install -r requirements.txt
+```
+
+---
+
+## Repository Contents
+- **`raw_data/`** — dataset (or dataset placeholder + download instructions)
+- **`notebooks/`** — Phase 1 + Phase 2 notebooks
+- **`reports/`** — optional exported HTML/PDF reports
+- **`output/`** — optional saved plots, figures, and generated artifacts
+
+---
+
+## Tools & Skills Demonstrated
+
+### Core Stack
+- **Python:** pandas, numpy  
+- **Visualisation:** matplotlib, seaborn  
+
+### Data Preparation
+- Data cleaning & imputation (**mean/median**)
+- Outlier handling (**rule-based filtering**)
+- EDA + visual validation (histograms/boxplots)
+
+### Modelling
+- Feature selection: **SelectKBest / ANOVA F-test**
+- Model training & hyperparameter tuning: **GridSearchCV**
+- Evaluation: classification report, confusion matrix, precision/recall/F1
+- Model comparison: **ROC curves, AUC**, paired significance testing
+
+---
+
+## Data Source
+Kaggle / UCI **Pima Indians Diabetes** dataset (commonly attributed to the National Institute of Diabetes and Digestive and Kidney Diseases).
+
+---
+
+## Author
+**Akshay Kumar**  
+GitHub: https://github.com/akshay040
