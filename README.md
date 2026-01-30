@@ -135,9 +135,7 @@ pip install -r requirements.txt
 ---
 
 ## Repository Contents
-- **`notebooks/`** — Phase 1 + Phase 2 notebooks
-- **`reports/`** — optional exported HTML/PDF reports
-- **`output/`** — optional saved plots, figures, and generated artifacts
+- **`notebooks/`** — Phase 1 + Phase 2 notebooks (all analysis, results, and visuals are inside)
 
 ---
 
