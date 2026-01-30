@@ -112,12 +112,12 @@ Paired t-tests indicated Logistic Regression significantly outperformed Decision
 
 ## How to Run
 
-### Option A (recommended): Run notebooks
+### Option A : Run notebooks
 1. Install dependencies (see below)
 2. Open notebooks in `notebooks/`:
    - `Phase1_DataPrep_EDA.ipynb`
    - `Phase2_PredictiveModeling.ipynb`
-3. Ensure the dataset path matches your folder layout:
+3. Ensure the dataset path matches the folder layout:
    - If dataset is in `raw_data/diabetes.csv`, update:
      ```python
      data = pd.read_csv("../raw_data/diabetes.csv")
